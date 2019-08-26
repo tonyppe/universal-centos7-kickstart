@@ -61,8 +61,7 @@ grub2-mkconfig -o /boot/efi/EFI/centos/grub.cfg`
 `echo "PermitRootLogin no" >> /etc/ssh/sshd_config`
 
 5. If you want to disable the `root` account completely (meaning not even `sudo su` is available) then uncomment the following from the script
-`# disable root account (cant sudo su)
-# sed -i '/^root/ s/\/bin\/bash/\/sbin\/nologin/' /etc/passwd`
+`#sed -i '/^root/ s/\/bin\/bash/\/sbin\/nologin/' /etc/passwd`
 
 6. Configure an 8GB swapfile in the / area using the below. Change `count=8000` to another value if you want a different size swap. For example for (about) 16GB swap use `count=16000`
 `# add a 8GB swapfile
