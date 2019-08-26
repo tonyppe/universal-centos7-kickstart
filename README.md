@@ -32,17 +32,17 @@ Currently set to Australia:
 timezone Australia/Perth --isUtc
 
 ### Root password 
-Create your own `root` user password by using `openssl` and run `openssl passwd -1 "your-password-here"`
+Create your own `root` user password by using `openssl` and run `openssl passwd -1 "your-password-here"`'
 `rootpw --iscrypted $1$9ZV7FJKp$XeX615v1GFG9FFZQujNKD0`
 
 ### Disk partitioning with encryption
-Encryption passphrase will prompt on install else add '--passphrase=something' after --encrypted line. Example below.
+Encryption passphrase will prompt on install else add `--passphrase=something` after --encrypted line. Example below.
 No swap partition because this uses a swapfileinstead which can be more easily increased / decreased / moved after OS install.
-'part /boot/efi --fstype="efi" --asprimary --size=200 --fsoptions="umask=0077,shortname=winnt"'
-'part /boot --fstype="xfs" --asprimary --size=2048'
-'part pv.226 --fstype="lvmpv" --asprimary --grow --size=51205 --encrypted --passphrase=something'
-'volgroup centos --pesize=4096 pv.226'
-'logvol /  --fstype="xfs" --grow --size=51200 --label="/" --name=root --vgname=centos'
+`part /boot/efi --fstype="efi" --asprimary --size=200 --fsoptions="umask=0077,shortname=winnt"
+part /boot --fstype="xfs" --asprimary --size=2048
+part pv.226 --fstype="lvmpv" --asprimary --grow --size=51205 --encrypted --passphrase=something
+volgroup centos --pesize=4096 pv.226
+logvol /  --fstype="xfs" --grow --size=51200 --label="/" --name=root --vgname=centos`
 
 ## Post install section
 
